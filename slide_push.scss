@@ -1,15 +1,22 @@
+/* Settings */
+
+$menu-bg-color: #47a3da;
+$menu-divider-color: #258ecd;
+$title-bg-color: #0d77b6;
+$text-color: #afdefa;
+
 /* General styles for all menus */
 
 .sp-menu {
-  background: #47a3da;
+  background: $menu-bg-color;
   position: fixed;
   h3 {
-    color: #afdefa;
+    color: $text-color;
     font-size: 1.9em;
     padding: 20px;
     margin: 0;
     font-weight: 300;
-    background: #0d77b6;
+    background: $title-bg-color;
   }
 
   a {
@@ -18,16 +25,45 @@
     font-size: 1.1em;
     font-weight: 300;
     &:hover {
-      background: #258ecd;
+      background: $menu-divider-color;
     }
     &:active {
-      background: #afdefa;
-      color: #47a3da;
+      background: $text-color;
+      color: $menu-bg-color;
     }
   }
   .handle {
     padding: 2em;
     position: absolute;
+    &.left {
+      left: 2rem;
+    }
+
+    &.right {
+      left: auto;
+      right: 2rem;
+    }
+
+    &.top {
+      top: 2rem;
+    }
+
+    &.bottom {
+      top: auto;
+      bottom: 2rem;
+    }
+    .close {
+      display: none;
+    }
+  }
+
+  &.sp-menu-open{
+    .handle .burger-menu{
+      display: none;
+    }
+    .handle .close{
+      display: block;
+    }
   }
 }
 
@@ -39,7 +75,7 @@
   top: 0;
   z-index: 1000;
   a {
-    border-bottom: 1px solid #258ecd;
+    border-bottom: 1px solid $menu-divider-color;
     padding: 1em;
   }
   .handle {
@@ -70,7 +106,7 @@
     float: left;
     width: 20%;
     padding: 0.8em;
-    border-left: 1px solid #258ecd;
+    border-left: 1px solid $menu-divider-color;
   }
 
   .handle {
@@ -94,6 +130,13 @@
   left: -240px;
   &.sp-menu-open {
     left: 0;
+  }
+}
+
+.sp-menu-fixed-handle {
+  &.sp-menu-open .handle {
+    top: 0;
+    transform: none;
   }
 }
 
